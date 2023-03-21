@@ -1,0 +1,1 @@
+# mashta-go
