@@ -16,6 +16,8 @@ services:
     environment:
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+      - KAFKA_PASSWORD=PH!fl8U4I#rLWre0LH@p
+      - KAFKA_USERNAME=raw-greenanimals
       - ALLOW_PLAINTEXT_LISTENER=yes
   rabbitmq:
     image: 'bitnami/rabbitmq:latest'
