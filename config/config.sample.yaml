@@ -1,0 +1,29 @@
+service-name: "test-app"
+stream-router:
+  booking:
+    bootstrap-servers: "dev.greenanimalsbank.com:6668"
+    instance-count: 4
+    # how many consumers to spawn.
+    # adjust this number to the number of partitions
+    # to maximize parallelization
+    origin-topics: "^.*-booking-log"
+    group-id: "booking-group-go"
+    topic-entity: booking
+  test-entity:
+    bootstrap-servers: "localhost:9092"
+    instance-count: 2
+    origin-topics: "test-topic2"
+    group-id: "test-group2"
+    topic-entity: "test-entity"
+  json-entity:
+    bootstrap-servers: "localhost:9092"
+    instance-count: 1
+    origin-topics: "json-test"
+    group-id: "json-group"
+log-level: "debug"
+retry:
+  enabled: false
+  count: 5
+rabbitmq:
+  host: "amqp://user:bitnami@localhost:5672/"
+  delay-queue-expiration: "1000"
